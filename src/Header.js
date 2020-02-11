@@ -28,7 +28,7 @@ class Header extends React.Component {
           <ActionBar.Actions>
             <Button
               onClick={() => this._toggleModal(true)}
-              glyph="positive"
+              glyph="add"
               option="emphasized">
               Add Time
             </Button>
