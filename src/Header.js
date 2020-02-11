@@ -5,14 +5,20 @@ import { Modal } from 'fundamental-react/Modal';
 import { DatePicker } from 'fundamental-react/DatePicker';
 import { TimePicker } from 'fundamental-react/TimePicker';
 import { LayoutGrid } from 'fundamental-react/LayoutGrid';
+import { InlineHelp } from 'fundamental-react/InlineHelp';
 import { FormSet, FormItem, FormLabel, FormSelect } from 'fundamental-react/Forms';
 
 class Header extends React.Component {
   constructor(props) {
     super(props);
 
+    const today = new Date();
+    var tomorrow = new Date(today);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+
     this.state = {
-      "show": false
+      "show": false,
+      "disableAfterDate": tomorrow
     };
   }
 
@@ -41,7 +47,7 @@ class Header extends React.Component {
               actions={<><Button onClick={() => this._toggleModal(false)} option="light">Cancel</Button><Button onClick={function S(){}}>Submit</Button></>}
               onClose={() => this._toggleModal(false)}
               title="Add NAM Activity">
-              <FormSet customStyles={{"align-items": "justify"}}>
+              <FormSet>
                 <FormItem>
                   <FormLabel>
                     NAM Type: 
@@ -58,10 +64,14 @@ class Header extends React.Component {
                 <FormItem>
                   <FormLabel>
                     Date: 
+                    <InlineHelp
+                      className="fd-has-float-right zindex-2"
+                      placement="bottom-left"
+                      text="You can only book NAM time for today and tomorrow." />
                   </FormLabel>
                   <DatePicker
                     className="span-width"
-                    disableAfterDate={new Date()}
+                    disableAfterDate={this.state.disableAfterDate}
                     disablePastDates="true" />
                 </FormItem>
 
@@ -70,26 +80,26 @@ class Header extends React.Component {
                   <FormLabel>
                     Work Start: 
                   </FormLabel>
-                  <TimePicker />
+                  <TimePicker showSecond={false} />
                 </FormItem>
                 <FormItem>
                   <FormLabel>
                     Work End: 
                   </FormLabel>
-                  <TimePicker />
+                  <TimePicker showSecond={false} />
                 </FormItem>
 
                 <FormItem>
                   <FormLabel>
                     Travel Start: 
                   </FormLabel>
-                  <TimePicker />
+                  <TimePicker showSecond={false} />
                 </FormItem>
                 <FormItem>
                   <FormLabel>
                     Travel End: 
                   </FormLabel>
-                  <TimePicker />
+                  <TimePicker showSecond={false} />
                 </FormItem>
                 </LayoutGrid>
 

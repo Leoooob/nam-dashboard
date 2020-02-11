@@ -14,3 +14,7 @@
 .buff-bot.fd-layout-grid {
   margin-bottom: 8rem;
 }
+
+.zindex-2 .fd-inline-help__content {
+  z-index: 2;
+}
