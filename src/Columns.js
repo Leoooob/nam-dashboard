@@ -28,10 +28,10 @@ function ColumnSection(props) {
   var shortdate = date[1];
 
   return (
-    <section>
+    <div>
       <Header day={day} date={shortdate} time={props.data.totalTime} />
       <ColumnBody Planned={props.data.Planned} Reactive={props.data.Reactive} NAM={props.data.NAM} />
-    </section>
+    </div>
   );
 }
 

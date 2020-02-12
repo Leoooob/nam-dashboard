@@ -31,7 +31,8 @@ section .header {
 }
 
 .column ul {
-  margin-bottom: 2rem;
+  padding: 0.5rem;
+  margin-bottom: 0;
   list-style-type: none;
 }
 
