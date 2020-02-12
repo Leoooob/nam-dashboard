@@ -27,6 +27,7 @@ section .header {
   text-align: center;
   display: flex;
   flex-direction: column;
+  margin-bottom: 1rem;
 }
 
 .column ul {
@@ -36,6 +37,7 @@ section .header {
 
 .column h3 {
   padding: 0.5rem;
+  font-weight: bold;
   border-top-right-radius: 2rem;
   border-bottom-right-radius: 2rem;
 }
@@ -68,4 +70,24 @@ section .header {
   width: 0.5rem;
   display: block;
   position: absolute;
+}
+
+.tile-funcloc, 
+.tile-workorder {
+  padding: 0 0.5rem;
+}
+
+.tile-funcloc {
+  margin-bottom: 0.5rem;
+}
+
+.glyph-icon {
+  width: 3rem;
+  color: rgb(206, 206, 206);
+  border-left: 1rem solid transparent;
+}
+
+.split-2 {
+  display: flex;
+  flex-direction: row;
 }

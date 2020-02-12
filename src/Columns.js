@@ -62,7 +62,7 @@ function ColumnBody(props) {
 
 function ItemList(props) {
   var itemTiles = props.items.map((item, i) => {
-    return <li className="test" key={i}><ItemTile description={item.description} funcLocation={item.funcLocation} workOrder={item.workOrder} timeWorked={item.timeWorked} timeTravel={item.timeTravel} /></li>;
+    return <li key={i}><ItemTile description={item.description} funcLocation={item.funcLocation} workOrder={item.workOrder} timeWorked={item.timeWorked} timeTravel={item.timeTravel} /></li>;
   });
 
   return (
@@ -76,13 +76,15 @@ function ItemTile(props) {
   return (
     <Tile>
       <Tile.Content title={props.description}>
-        <span>{props.funcLocation}</span>
-        <div>{props.workOrder}</div>
-        <div>
-          <Icon size="l" glyph="accept" /> {props.timeWorked}
+        <div className="tile-workorder">{props.workOrder}</div>
+        <div className="tile-funcloc">{props.funcLocation}</div>
+        <div className="split-2">
+          <Icon className="glyph-icon" size="l" glyph="accept" />
+          <span>{props.timeWorked}</span>
         </div>
-        <div>
-          <Icon size="l" glyph="car-rental" /> {props.timeTravel}
+        <div className="split-2">
+          <Icon className="glyph-icon" size="l" glyph="car-rental" />
+          <span>{props.timeTravel}</span>
         </div>
       </Tile.Content>
     </Tile>
