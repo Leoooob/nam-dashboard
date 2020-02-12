@@ -31,8 +31,41 @@ section .header {
 
 .column ul {
   margin-bottom: 2rem;
+  list-style-type: none;
 }
 
-.column ul .fd-tile {
+.column h3 {
+  padding: 0.5rem;
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+}
+
+.column h3.planned,
+.column ul.planned li:before {
+  background-color: rgba(114, 191, 68, 0.8);
+}
+
+.column h3.reactive,
+.column ul.reactive li:before {
+  background-color: rgba(255, 203, 5, 0.8);
+}
+
+.column h3.nam,
+.column ul.nam li:before {
+  background-color: rgba(0, 158, 219, 1);
+}
+
+.column ul li {
+  position: relative;
   margin-bottom: 2rem;
+}
+
+.column ul li:before {
+  top: 0;
+  left: 0;
+  height: 100%;
+  content: ' ';
+  width: 0.5rem;
+  display: block;
+  position: absolute;
 }

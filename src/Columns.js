@@ -46,31 +46,27 @@ function Header(props) {
 }
 
 function ColumnBody(props) {
-  // var props = JSON_DATA.data[1];
-
   return (
     <div className="column">
-      <h3>Planned ({props.Planned.length})</h3>
-      <ItemList items={props.Planned} />
+      <h3 className="planned">Planned ({props.Planned.length})</h3>
+      <ItemList type="planned" items={props.Planned} />
 
-      <h3>Reactive ({props.Reactive.length})</h3>
-      <ItemList items={props.Reactive} />
+      <h3 className="reactive">Reactive ({props.Reactive.length})</h3>
+      <ItemList type="reactive" items={props.Reactive} />
 
-      <h3>NAM ({props.NAM.length})</h3>
-      <ItemList items={props.NAM} />
+      <h3 className="nam">NAM ({props.NAM.length})</h3>
+      <ItemList type="nam" items={props.NAM} />
     </div>
   );
 }
 
 function ItemList(props) {
-  // console.log(props.items);
-
   var itemTiles = props.items.map((item, i) => {
-    return <ItemTile key={i} description={item.description} funcLocation={item.funcLocation} workOrder={item.workOrder} timeWorked={item.timeWorked} timeTravel={item.timeTravel} />;
+    return <li className="test" key={i}><ItemTile description={item.description} funcLocation={item.funcLocation} workOrder={item.workOrder} timeWorked={item.timeWorked} timeTravel={item.timeTravel} /></li>;
   });
 
   return (
-    <ul>
+    <ul className={props.type}>
       {itemTiles}
     </ul>
   );
