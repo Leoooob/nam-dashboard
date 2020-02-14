@@ -17,8 +17,8 @@ function Columns() {
   );
 }
 
-function ColumnSection(props) {
-  var date = new Date(props.data.date);
+function ColumnSection(scooby) {
+  var date = new Date(scooby.data.date);
   date = date.toLocaleDateString('en-GB', {
     weekday: 'long', day: 'numeric', month: 'short', year: '2-digit'
   });
@@ -29,8 +29,8 @@ function ColumnSection(props) {
 
   return (
     <div>
-      <Header day={day} date={shortdate} time={props.data.totalTime} />
-      <ColumnBody Planned={props.data.Planned} Reactive={props.data.Reactive} NAM={props.data.NAM} />
+      <Header day={day === "Monday" ? "Worst day" : day} date={shortdate} time={scooby.data.totalTime} />
+      <ColumnBody Planned={scooby.data.Planned} Reactive={scooby.data.Reactive} NAM={scooby.data.NAM} />
     </div>
   );
 }
